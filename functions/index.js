@@ -29,10 +29,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => 
 
   // Get the date for the weather forecast (if present)
   let date = '';
+  var sid = '';
   let sessionID = req.query.session || req.body.session || 'No ID';
   let parts = sessionID.split('/');
   let answer = parts[parts.length - 1];
-  let sid = '[' + answer + '] '
+  sid = '[' + answer + '] '
   if (req.body.queryResult.parameters['date']) {
     date = req.body.queryResult.parameters['date'];
     log('Date: ' + date, sid);
