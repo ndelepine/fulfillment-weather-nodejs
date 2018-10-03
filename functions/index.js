@@ -17,7 +17,7 @@ const http = require('http');
 const functions = require('firebase-functions');
 
 const host = 'api.worldweatheronline.com';
-const wwoApiKey = '<ENTER_WWO_API_KEY_HERE>';
+const wwoApiKey = '49fdc8785d8d4636b12212024182103';
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest((req, res) => {
   // Get the city and date from the request
@@ -58,10 +58,10 @@ function callWeatherApi (city, date) {
         let currentConditions = conditions['weatherDesc'][0]['value'];
 
         // Create response
-        let output = `Current conditions in the ${location['type']} 
+        let output = `Current conditions in the ${location['type']}
         ${location['query']} are ${currentConditions} with a projected high of
-        ${forecast['maxtempC']}°C or ${forecast['maxtempF']}°F and a low of 
-        ${forecast['mintempC']}°C or ${forecast['mintempF']}°F on 
+        ${forecast['maxtempC']}°C or ${forecast['maxtempF']}°F and a low of
+        ${forecast['mintempC']}°C or ${forecast['mintempF']}°F on
         ${forecast['date']}.`;
 
         // Resolve the promise with the output text
